@@ -1,0 +1,24 @@
+{
+  "name": "ccb smart 2012, distributed qte approach.",
+  "version": "1.0",
+  "permissions": [
+    "tabs", "http://*/*", "https://*/*", "chrome-devtools://devtools/*"
+  ],
+  "browser_action": {
+      "default_title": "inject to ccb smart.",
+      "default_icon": "icon.png",
+      "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://ccb.99wuxian.com/*"],
+      "js": ["jquery-1.5.1.js", "content.js"]
+    }
+  ],
+  "background": {
+    "page": "background.html"
+  },
+  "web_accessible_resources": [ "inject.js" ],
+  "options_page": "options.html",
+  "manifest_version": 2
+}
