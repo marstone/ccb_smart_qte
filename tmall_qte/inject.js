@@ -103,10 +103,28 @@ function dispatchMouseEvent(target, var_args) {
 };
 
 
-tmall_qte();
+function vol_cat() { 
 
-function hi() { 
-	log(localStorage['dice']); 
-	setTimeout(hi, 1000); 
+	var catBody = document.getElementById('J_VolCatBody');
+	var cat = document.getElementById('J_VolCat');
+	if(null != catBody && null != cat) {
+		if(catBody.style.display != 'none') {
+			log('cat found! dont run!');
+			dispatchMouseEvent(cat, 'click', true, true);
+		}
+	}
+	setTimeout(vol_cat, 100); 
 }
-setTimeout(hi, 1000);
+
+function qte_status() {
+	log(localStorage['dice']); 
+	setTimeout(vol_cat, 5000); 
+}
+
+(function init() {
+	setTimeout(vol_cat, 500);
+	setTimeout(tmall_qte, 500);
+	setTimeout(qte_status, 500);
+})();
+
+
