@@ -58,7 +58,7 @@ function tmall_qte() {
 	if(dice < 100) dice = 100;
 	var dice2 = dice / 2;
 
-	/*
+	/* version before 20120618
 	var divs = document.getElementsByTagName('div');
 	for(var i = 0; i < divs.length; i++) {
 		var an = divs[i];
@@ -71,21 +71,22 @@ function tmall_qte() {
 	*/
 
 	var btn = document.getElementsByClassName('vol-btn')[0];
-	log(btn.className);
+	// log(btn.className);
 	if(btn.className != 'vol-btn vol-btn-disable') {
+		log('smash!');
 		dispatchMouseEvent(btn, 'mouseover', true, true);
 		dispatchMouseEvent(btn, 'click', true, true);
 	}
 
 	var rand = Math.floor((Math.random()*dice2)+dice2);
-
 	timer = setTimeout(tmall_qte, rand);
 
+	/* version before 20120618
 	if(dice != 0 && null == timer) {
-		// timer = setTimeout(tmall_close, rand);
+		timer = setTimeout(tmall_close, rand);
 	}
+	*/
 }
-
 
 function tmall_close() {
 
