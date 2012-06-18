@@ -46,7 +46,7 @@ function qte_option(key) {
 
 function tmall_qte() {
 	// localStorage["dice"] = 1;
-	log('starting tmall qte...' + localStorage['dice']);
+	// log('starting tmall qte...' + localStorage['dice']);
 
 	var dice = localStorage['dice'];
 	if(null == dice)
@@ -58,20 +58,31 @@ function tmall_qte() {
 	if(dice < 100) dice = 100;
 	var dice2 = dice / 2;
 
-	
+	/*
 	var divs = document.getElementsByTagName('div');
 	for(var i = 0; i < divs.length; i++) {
 		var an = divs[i];
 		if(an.className == 'vol-btn') {
-			dispatchMouseEvent(an, 'click', true, true);
+			dispatchMouseEvent(an.nextSibing, 'mouseover', true, true);
+			dispatchMouseEvent(an.nextSibing, 'click', true, true);
 			break;
 		}
+	}
+	*/
+
+	var btn = document.getElementsByClassName('vol-btn')[0];
+	log(btn.className);
+	if(btn.className != 'vol-btn vol-btn-disable') {
+		dispatchMouseEvent(btn, 'mouseover', true, true);
+		dispatchMouseEvent(btn, 'click', true, true);
 	}
 
 	var rand = Math.floor((Math.random()*dice2)+dice2);
 
+	timer = setTimeout(tmall_qte, rand);
+
 	if(dice != 0 && null == timer) {
-		timer = setTimeout(tmall_close, rand);
+		// timer = setTimeout(tmall_close, rand);
 	}
 }
 
@@ -105,15 +116,33 @@ function dispatchMouseEvent(target, var_args) {
 
 function vol_cat() { 
 
-	var catBody = document.getElementById('J_VolCatBody');
-	var cat = document.getElementById('J_VolCat');
-	if(null != catBody && null != cat) {
-		if(catBody.style.display != 'none') {
-			log('cat found! dont run!');
-			dispatchMouseEvent(cat, 'click', true, true);
+	var catBodies = document.getElementsByClassName('vol-cat-body');
+	var found = false;
+	if(null != catBodies) {
+		for(var x = 0; x < catBodies.length; x++) {
+			if(found)
+				break;
+			var catBody = catBodies[x];
+			if(catBody.style.display == 'none')
+				continue;
+
+			for(var y = 0; y < catBody.childNodes.length; y++ ) {
+
+				if(catBody.childNodes[y].className == 'vol-cat'){
+					var cat = catBody.childNodes[y];
+					if(null != catBody && null != cat) {
+
+						log('cat found! dont run!');
+						dispatchMouseEvent(cat, 'mouseover', true, true);
+						dispatchMouseEvent(cat, 'click', true, true);
+						found = true;
+						break;
+					}
+				}
+            }
 		}
 	}
-	setTimeout(vol_cat, 100); 
+	setTimeout(vol_cat, 800); 
 }
 
 function qte_status() {
