@@ -2,7 +2,7 @@
   "name": "ccb smart 2012, distributed qte approach.",
   "version": "1.0",
   "permissions": [
-    "tabs", "http://*/*", "https://*/*", "chrome-devtools://devtools/*"
+    "tabs", "http://*/*", "https://*/*"
   ],
   "browser_action": {
       "default_title": "inject to ccb smart.",
