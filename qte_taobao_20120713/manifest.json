@@ -6,7 +6,7 @@
   ],
   "browser_action": {
       "default_title": "inject to tmall qte.",
-      "default_icon": "tmall.ico",
+      "default_icon": "taobao.ico",
       "default_popup": "popup.html"
   },
   "content_scripts": [
