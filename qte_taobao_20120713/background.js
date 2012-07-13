@@ -26,6 +26,12 @@ function init() {
 	chrome.tabs.onUpdated.addListener(function( tabId , info, tab ) {
 		if ( info.status == "complete" ) {
 			// your code ...
+			if(tab.url.indexOf('http://www.taobao.com/go/act/sale/summer2012-yr.php') != 0)
+			{
+				console.log('not summer2012-yr.php, skip');
+				return;
+			}
+
 			inject();
 			console.log(tabId);
 			console.log(info);
