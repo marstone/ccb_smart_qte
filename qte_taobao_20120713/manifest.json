@@ -1,0 +1,23 @@
+{
+  "name": "taobao qte 2012/07/13",
+  "version": "1.0",
+  "permissions": [
+    "tabs", "http://*/*", "https://*/*"
+  ],
+  "browser_action": {
+      "default_title": "inject to tmall qte.",
+      "default_icon": "tmall.ico",
+      "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://www.taobao.com/go/act/sale/summer2012-yr.php*"],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "page": "background.html"
+  },
+  "web_accessible_resources": [ "inject.js" ],
+  "manifest_version": 2
+}
