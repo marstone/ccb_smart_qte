@@ -57,7 +57,7 @@ function tmall_qte() {
 
 
 	var btns = document.getElementsByClassName('award_btn');
-
+	log('btns.length=' + null == btns ? 0 : btns.length);
 	if(btns.length > 0 && btns[0].className != 'award_btn award_btn3') {
 		var btn = btns[0];
 		// log(btn.className);
@@ -104,6 +104,6 @@ function qte_status() {
 }
 
 (function init() {
-	setTimeout(tmall_qte, 500);
+	setTimeout(tmall_qte, 1500);
 	setTimeout(qte_status, 500);
 })();
