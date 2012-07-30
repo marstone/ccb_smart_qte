@@ -1,22 +1,22 @@
 {
-  "name": "tmall qte 2012/06/15",
+  "name": "12306 qte 2012/07/30",
   "version": "1.0",
   "permissions": [
     "tabs", "http://*/*", "https://*/*", "notifications"
   ],
   "browser_action": {
-      "default_title": "inject to tmall qte.",
-      "default_icon": "tmall.ico",
+      "default_title": "inject to 12306 qte.",
+      "default_icon": "favicon.ico",
       "default_popup": "popup.html"
   },
   "content_scripts": [
     {
-      "matches": ["http://www.tmall.com/*"],
-      "js": ["content.js"]
+      "matches": ["https://dynamic.12306.cn/otsweb/*"],
+      "js": ["content.js", "jquery-1.5.1.js"]
     }
   ],
   "background": {
-    "page": "background.html"
+	"page": "background.html"
   },
   "web_accessible_resources": [ "inject.js" ],
   "manifest_version": 2
